@@ -1,5 +1,5 @@
 -main Main
 -cpp cpp
--cp src
+-cp .
 -lib hxcpp
--D static_link
+#-D static_link

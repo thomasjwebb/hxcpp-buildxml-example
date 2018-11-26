@@ -1,18 +1,31 @@
 package;
 
-
-class Main {
-  private static function callback(a:Int, b:Float)
-  {
+class EncapsulatingClass {
+  static private var cppClass:CppClass;
+  
+  private static function callback(a:Int, b:Float) {
     trace(a);
     trace(b);
   }
 
-  public static function main()
-  {
-    trace('hello');
-    var cppClass = CppClass.create();
+  public function new() {
+    // cppClass = CppClass.create();
     cppClass.callF(cpp.Callable.fromStaticFunction(callback));
+  }
+}
+
+class Main {
+  
+  private static function callback(a:Int, b:Float) {
+    trace(a);
+    trace(b);
+  }
+
+  public static function main() {
+    trace('hello');
+    var c = new EncapsulatingClass();
+    // var cppClass = CppClass.create();
+    // cppClass.callF(cpp.Callable.fromStaticFunction(callback));
   }
 }
 

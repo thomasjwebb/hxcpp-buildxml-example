@@ -1,7 +1,7 @@
 package;
 
 class EncapsulatingClass {
-  static private var cppClass:CppClass;
+  private var cppClass:CppClass;
   
   private static function callback(a:Int, b:Float) {
     trace(a);
@@ -9,17 +9,17 @@ class EncapsulatingClass {
   }
 
   public function new() {
-    // cppClass = CppClass.create();
+    cppClass = CppClass.create();
     cppClass.callF(cpp.Callable.fromStaticFunction(callback));
   }
 }
 
 class Main {
   
-  private static function callback(a:Int, b:Float) {
-    trace(a);
-    trace(b);
-  }
+  // private static function callback(a:Int, b:Float) {
+  //   trace(a);
+  //   trace(b);
+  // }
 
   public static function main() {
     trace('hello');
